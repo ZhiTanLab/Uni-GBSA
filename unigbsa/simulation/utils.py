@@ -105,8 +105,7 @@ def load_position_restraints(topfile, outfile=None):
 def generate_index_file_for_restrain(complexfile):
     cmd = '''%s make_ndx -f %s 2>&1 << EOF
            name 2 LIGAND
-           q
-        EOF ''' % ( GMXEXE, complexfile )
+           q\nEOF ''' % ( GMXEXE, complexfile )
     fr = os.popen(cmd)
     text = fr.read().strip()
     if 'Error' in text:
